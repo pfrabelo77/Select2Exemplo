@@ -1,4 +1,4 @@
-DECLARE @List VARCHAR(max) = '2,3,5'
+DECLARE @List VARCHAR(max) = '2,3,5' --Coloque aqui os valores dos IDs vindos do Select2 MultiSelect
 
 SELECT *
 FROM   Clientes
