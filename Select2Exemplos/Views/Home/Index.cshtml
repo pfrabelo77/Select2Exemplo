@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <h1>Exemplos de Select2</h1>
+    <p class="lead">O substituto jQuery para caixas de seleção.</p>
+    <p><a href="https://select2.org/" class="btn btn-primary btn-lg">Aprenda mais &raquo;</a></p>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Select2 Simples</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal  ">
+                <hr />
+                <div class="form-group">
+                    @Html.Label("Escolha um Carro", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DropDownList("id", (SelectList)ViewBag.listaCarros, "Selecione...", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Enviar" class="btn btn-info" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <div class="col-md-6">
+        <h2>Select 2 MultiSelect</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal  ">
+                <hr />
+                <div class="form-group">
+                    @Html.Label("Escolha vários Carros", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DropDownList("id2", (SelectList)ViewBag.listaCarros, "Selecione...", new { @class = "form-control", @style = "width: 100%", multiple = "multiple" }) 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Enviar" class="btn btn-info" />
+                        <button class="btn btn-primary btn-sm" type="button" id="btnValores">Alert Valores</button>
+                        <button class="btn btn-success btn-sm" type="button" id="btnLimpar">Limpar</button>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#id').select2({
+                placeholder: 'Selecione...',
+                allowClear: true
+            });
+            $('#id2').select2({
+                placeholder: 'Selecione os carros',
+                //allowClear: true,
+                //maximumSelectionLength: 2,
+                //templateSelection: function (data) { return data.id; }
+            });
+
+            $('#btnValores').click(function () {
+                alert($("#id2").val());
+            });
+
+            $('#btnLimpar').click(function () {
+                //$("#id2").val('');
+                //$('#id2').select2('data', null);
+                //$('#id2').empty().trigger("change");
+                //$("#id2").val(null).trigger("change");
+                $("#id2").val([]).change();
+                //$("#workload-selector").val("");
+                //$("#workload-selector").trigger("change");
+            });
+
+            //$('.js-example-basic-single2').select2({
+            //    placeholder: "Selecione...",
+            //    templateSelection: function (data) { return data.id; }
+            //});
+
+        });    
+    </script>
+}
