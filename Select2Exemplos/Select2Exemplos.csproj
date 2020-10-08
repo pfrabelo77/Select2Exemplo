@@ -135,6 +135,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="QueryCriarTabelaCarro.sql" />
     <Content Include="QueryFunction_SplitString.sql" />
     <Content Include="QueryMultiSelect.sql" />
     <Content Include="Scripts\bootstrap.js" />
