@@ -51,7 +51,7 @@ namespace Select2Exemplos.Controllers
                 ViewBag.ResultadoId = "Nada escolhido";
             }
 
-            if (id2 != null && !(id2.Count == 1 && id2?[0] == ""))
+            if (id2 != null)
             {
                 var str = String.Join(",", id2);
                 ViewBag.ResultadoId2 = str;
