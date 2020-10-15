@@ -46,8 +46,8 @@
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Enviar" class="btn btn-info" />
                         <button class="btn btn-primary btn-sm" type="button" id="btnValores">Alert Valores</button>
+                        <button class="btn btn-primary btn-sm" type="button" id="btnSetValores">Setar Valores</button>
                         <button class="btn btn-success btn-sm" type="button" id="btnLimpar">Limpar</button>
-
                     </div>
                 </div>
             </div>
@@ -70,6 +70,13 @@
 
             $('#btnValores').click(function () {
                 alert($("#id2").val());
+            });
+
+            $('#btnSetValores').click(function () {
+                var selectedValues = new Array();
+                selectedValues[0] = "2"; //Gol
+                selectedValues[1] = "3"; //Fiat 147
+                $("#id2").val(selectedValues).change();;
             });
 
             $('#btnLimpar').click(function () {
